@@ -15,6 +15,9 @@
 		F28883D11D1479F500F29914 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F28883CF1D1479F500F29914 /* LaunchScreen.storyboard */; };
 		F28883DC1D1479F500F29914 /* CarthagePracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F28883DB1D1479F500F29914 /* CarthagePracticeTests.m */; };
 		F28883E71D1479F500F29914 /* CarthagePracticeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F28883E61D1479F500F29914 /* CarthagePracticeUITests.m */; };
+		F28883F61D147C2F00F29914 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28883F41D147C2F00F29914 /* Alamofire.framework */; };
+		F28883F71D147C2F00F29914 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28883F51D147C2F00F29914 /* SwiftyJSON.framework */; };
+		F28883FA1D147FC600F29914 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28883F91D147FC600F29914 /* WebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		F28883E21D1479F500F29914 /* CarthagePracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarthagePracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28883E61D1479F500F29914 /* CarthagePracticeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarthagePracticeUITests.m; sourceTree = "<group>"; };
 		F28883E81D1479F500F29914 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F28883F41D147C2F00F29914 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		F28883F51D147C2F00F29914 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		F28883F91D147FC600F29914 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28883F61D147C2F00F29914 /* Alamofire.framework in Frameworks */,
+				F28883F71D147C2F00F29914 /* SwiftyJSON.framework in Frameworks */,
+				F28883FA1D147FC600F29914 /* WebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,9 @@
 		F28883B51D1479F500F29914 = {
 			isa = PBXGroup;
 			children = (
+				F28883F91D147FC600F29914 /* WebImage.framework */,
+				F28883F41D147C2F00F29914 /* Alamofire.framework */,
+				F28883F51D147C2F00F29914 /* SwiftyJSON.framework */,
 				F28883C01D1479F500F29914 /* CarthagePractice */,
 				F28883DA1D1479F500F29914 /* CarthagePracticeTests */,
 				F28883E51D1479F500F29914 /* CarthagePracticeUITests */,
@@ -150,6 +162,7 @@
 				F28883BA1D1479F500F29914 /* Sources */,
 				F28883BB1D1479F500F29914 /* Frameworks */,
 				F28883BC1D1479F500F29914 /* Resources */,
+				F28883F81D147C4600F29914 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -264,6 +277,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F28883F81D147C4600F29914 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/WebImage.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F28883BA1D1479F500F29914 /* Sources */ = {
@@ -415,6 +447,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthagePractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apppartner.CarthagePractice;
@@ -426,6 +463,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthagePractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apppartner.CarthagePractice;

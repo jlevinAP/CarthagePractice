@@ -8,7 +8,13 @@
 
 #import "ViewController.h"
 
+//@import WebImage;
+#import <WebImage/WebImage.h>
+@import Alamofire;
+
 @interface ViewController ()
+
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -17,6 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://assets-cdn.github.com/images/modules/logos_page/Octocat.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    }];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

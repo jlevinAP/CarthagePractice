@@ -350,6 +350,7 @@ SWIFT_CLASS("_TtCC9Alamofire7Manager15SessionDelegate")
 /// \param expectedTotalBytes The expected length of the file, as provided by the Content-Length header.
 /// If this header was not provided, the value is NSURLSessionTransferSizeUnknown.
 - (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes;
+- (BOOL)respondsToSelector:(SEL _Null_unspecified)selector;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
